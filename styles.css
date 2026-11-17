@@ -77,11 +77,8 @@ code {
 .brand:hover { text-decoration: none; }
 
 .brand-mark {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  background: linear-gradient(135deg, var(--accent), var(--gap-color));
   display: inline-block;
+  flex: none;
 }
 
 .site-nav { display: flex; align-items: center; gap: 22px; }

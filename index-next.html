@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanceda — robot fleet orchestration software</title>
+<meta name="description" content="Vanceda LLC builds operator software for multi-vendor robot fleets, on open, Kubernetes-native infrastructure.">
+<link rel="canonical" href="https://vanceda.com/">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0A0E12">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vanceda.com/">
+<meta property="og:title" content="Vanceda — robot fleet orchestration software">
+<meta property="og:description" content="Multi-vendor robot fleets, operated as one. Kubernetes-native, built on the open Swarmada standard.">
+<meta property="og:image" content="https://vanceda.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top"><svg class="brand-mark" viewBox="14.5 35.0 83.0 83.0" width="26" height="26" role="img" aria-label="Vanceda"><g fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M26,52.04 L46,86.68"/><path d="M45.65,65.36 L50.82,84.68"/><path d="M56,44 L56,84"/><path d="M66.35,65.36 L61.18,84.68"/><path d="M86,52.04 L66,86.68"/></g><g fill="#fff"><circle cx="26" cy="52.04" r="5"/><circle cx="45.65" cy="65.36" r="5"/><circle cx="56" cy="44" r="5"/><circle cx="66.35" cy="65.36" r="5"/><circle cx="86" cy="52.04" r="5"/></g><circle cx="56" cy="104" r="10" fill="#58a6ff"/></svg>Vanceda</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#stack">The gap</a>
+      <a href="#build">Platform</a>
+      <a href="#technology">Technology</a>
+      <a href="#swarmada">Swarmada</a>
+      <a class="nav-cta" href="#partners">Design partners</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Vanceda LLC · California</p>
+      <h1>Multi-vendor robot fleets, operated as one.</h1>
+      <p class="lede">Warehouses, hospitals and factories increasingly run robots from more than one
+        manufacturer, and every vendor ships its own fleet manager. Vanceda builds the layer that
+        operates them together, on open, Kubernetes-native infrastructure — so the orchestration
+        layer underneath your fleet is a published standard rather than a vendor's black box.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#partners">Become a design partner</a>
+        <a class="btn btn-ghost" href="#stack">Why this layer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified 15 Aug 2026 against the public repos:
+       12  = kubebuilder object:root types in swarmada/swarmada api/
+       3   = swarmada/fleet-adapter-{ros2,vda5050,mavlink}, all public with code and tests
+       43  = adapters/REGISTRY.md — "C0–C16, 43 checks"
+       Do NOT escalate to "43 checks passing": the harness drives C1–C6 and reports
+       C7/C8 as skip. "checks in the suite" is the accurate phrasing.
+
+       These are SWARMADA's figures, not Vanceda's. The band is labelled as such and must
+       stay labelled. Vanceda's products are proprietary; presenting the standard's openness
+       as the company's is the single easiest way to lose a design partner's trust. -->
+  <section class="stats">
+    <div class="wrap">
+      <p class="stats-label">The open standard underneath —
+        <a href="https://swarmada.io">Swarmada</a>, Apache&nbsp;2.0</p>
+      <div class="stats-grid">
+        <div><b>12</b><span>Kubernetes custom resources with implemented controllers</span></div>
+        <div><b>3</b><span>conformant vendor adapters — ROS&nbsp;2, VDA5050, MAVLink</span></div>
+        <div><b>43</b><span>checks in the adapter conformance suite</span></div>
+        <div><b>Public</b><span>specification, source and conformance results</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" class="sec sec-dark">
+    <div class="wrap">
+      <p class="eyebrow">The orchestration gap</p>
+      <h2>One layer of the robotics stack has no neutral standard</h2>
+      <p class="lede">Application programming, simulation, and the hardware and model layers each
+        have well-backed contenders. Fleet orchestration does not — and it is the layer that decides
+        whether a mixed fleet can be operated as one fleet.</p>
+      <div class="stack"><svg viewBox="0 0 820 380" role="img"
+     aria-label="Four-layer robotics stack. Application programming: Google and Intrinsic. Fleet orchestration: no vendor-neutral standard — the layer Swarmada fills. Hardware and models: NVIDIA. Physics simulation: Newton, heading to the Linux Foundation.">
+  <defs>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0E8FA3"/><stop offset="1" stop-color="#12A9C2"/>
+    </linearGradient>
+  </defs>
+  <g font-family="Inter Display, Inter, sans-serif">
+    <rect x="1" y="1" width="818" height="68" rx="11" fill="#131B22" stroke="rgba(255,255,255,.10)"/>
+    <text x="28" y="31" font-size="17.5" font-weight="600" fill="#E9EFF3">Application programming</text>
+    <text x="28" y="53" font-size="14" fill="#94A5B0">Task definition, skills, behaviour authoring</text>
+    <text x="792" y="42" font-size="14" font-weight="600" fill="#94A5B0" text-anchor="end">Google · Intrinsic — Flowstate</text>
+
+    <rect x="1" y="81" width="818" height="106" rx="11" fill="url(#hot)"/>
+    <text x="28" y="116" font-size="20" font-weight="600" fill="#FFFFFF">Fleet orchestration</text>
+    <text x="28" y="141" font-size="14.5" fill="#DBF2F6">Task assignment · traffic deconfliction · health and capability · safe stop</text>
+    <text x="28" y="167" font-size="13" font-weight="600" fill="#FFFFFF" letter-spacing="1.8">NO VENDOR-NEUTRAL STANDARD</text>
+    <text x="792" y="126" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="end">Swarmada — Apache 2.0</text>
+    <text x="792" y="150" font-size="13.5" fill="#DBF2F6" text-anchor="end">the layer Vanceda builds on</text>
+
+    <rect x="1" y="199" width="818" height="68" rx="11" fill="#131B22" stroke="rgba(255,255,255,.10)"/>
+    <text x="28" y="229" font-size="17.5" font-weight="600" fill="#E9EFF3">Hardware and models</text>
+    <text x="28" y="251" font-size="14" fill="#94A5B0">Compute at the edge, perception and control models</text>
+    <text x="792" y="240" font-size="14" font-weight="600" fill="#94A5B0" text-anchor="end">NVIDIA — Isaac, GR00T</text>
+
+    <rect x="1" y="279" width="818" height="68" rx="11" fill="#131B22" stroke="rgba(255,255,255,.10)"/>
+    <text x="28" y="309" font-size="17.5" font-weight="600" fill="#E9EFF3">Physics simulation</text>
+    <text x="28" y="331" font-size="14" fill="#94A5B0">Shared physics engine for robot learning</text>
+    <text x="792" y="320" font-size="14" font-weight="600" fill="#94A5B0" text-anchor="end">Newton → Linux Foundation</text>
+
+    <text x="410" y="372" font-size="13" fill="#6E7F8B" text-anchor="middle">Every layer but one has a neutral, foundation-backed standard.</text>
+  </g>
+</svg></div>
+      <p class="stack-note">Vanceda builds operator software on the orchestration layer. The layer
+        itself is an open standard — Apache&nbsp;2.0, developed in the open, and free for anyone
+        including our competitors to implement.</p>
+    </div>
+  </section>
+
+  <section id="build" class="sec sec-light">
+    <div class="wrap">
+      <p class="eyebrow">Platform</p>
+      <h2>What we build</h2>
+      <p class="lede">Operator-facing software for multi-vendor robot fleets. Vanceda's products are
+        commercial and proprietary. The orchestration layer they run on is not — it is an open
+        standard with a published conformance suite, so a fleet built on it keeps running whether or
+        not you keep buying from us.</p>
+      <div class="grid3">
+        <div class="card"><span class="num">01</span>
+          <h3>Vendor-neutral by construction</h3>
+          <p>A fleet spanning several manufacturers is operated as one fleet, through a single open
+             adapter contract rather than per-vendor integration code.</p></div>
+        <div class="card"><span class="num">02</span>
+          <h3>Cloud-native operations</h3>
+          <p>Declarative configuration, continuous reconciliation, and standard Kubernetes tooling —
+             the operating model infrastructure teams already run.</p></div>
+        <div class="card"><span class="num">03</span>
+          <h3>Safety that survives a review</h3>
+          <p>Confirmed stop paths, tamper-evident event records, and signature-verified firmware and
+             model updates, for environments where that has to be provable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-wash">
+    <div class="wrap">
+      <p class="eyebrow">How it shows up</p>
+      <h2>Three operations, one problem</h2>
+      <p class="lede">The pattern is the same wherever a facility has bought robots from more than
+        one supplier: capability arrives per vendor, and coordination does not arrive at all.</p>
+      <div class="scenarios">
+        <article class="scenario"><header><h3>Warehouse</h3></header><dl>
+          <dt>The problem</dt><dd>Autonomous mobile robots from two manufacturers share one floor.
+            Each has its own console and its own traffic rules, and neither knows the other exists.</dd>
+          <dt>What the software does</dt><dd>Both fleets appear as one fleet. Zone-based
+            deconfliction applies across vendors, and tasks are assigned on capability rather than
+            on which console you happen to have open.</dd>
+          <dt>What the operator gets</dt><dd class="gain">One person runs the floor instead of two,
+            and adding a third vendor does not add a third console.</dd></dl></article>
+        <article class="scenario"><header><h3>Hospital</h3></header><dl>
+          <dt>The problem</dt><dd>Delivery robots, lifts and doors come from different suppliers.
+            When something stops, safety and compliance need evidence that it stopped — not an
+            assurance.</dd>
+          <dt>What the software does</dt><dd>Stop commands are confirmed on the robot and recorded,
+            with tamper-evident event records and signature-verified firmware and model updates.</dd>
+          <dt>What the operator gets</dt><dd class="gain">An auditable record for a safety review,
+            produced by the system rather than reconstructed afterwards.</dd></dl></article>
+        <article class="scenario"><header><h3>Manufacturing</h3></header><dl>
+          <dt>The problem</dt><dd>Every new robot model means a new integration project, written
+            against one vendor's API that changes on their schedule.</dd>
+          <dt>What the software does</dt><dd>Vendors implement one open adapter contract, verified
+            by a published conformance suite, rather than being integrated one at a time.</dd>
+          <dt>What the operator gets</dt><dd class="gain">A new vendor is a procurement decision,
+            not an engineering project.</dd></dl></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology" class="sec sec-dark">
+    <div class="wrap">
+      <p class="eyebrow">Built on</p>
+      <h2>Technology</h2>
+      <p class="lede">The edge dependency is written into a public normative specification rather
+        than being aspirational.</p>
+      <div class="tech">
+        <div><h3>NVIDIA Jetson · linux/arm64</h3>
+          <p>The specification normatively places production fleet adapters and the edge zone
+             controller on Jetson hardware. The edge node is a compiled Go binary targeting arm64 and
+             runs the safety-critical stop path independently of the cloud.</p></div>
+        <div><h3>ROS 2 · Isaac ROS</h3>
+          <p>A conformant ROS 2 reference fleet adapter, integrating with Nav2 for navigation
+             actions.</p></div>
+        <div><h3>Isaac Sim</h3>
+          <p>Target environment for visual fleet simulation — a warehouse scene with multiple robots
+             demonstrating hardware-fault-driven task reassignment.</p></div>
+        <div><h3>cuOpt</h3>
+          <p>Under evaluation as a routing and assignment optimiser behind the zone-based traffic
+             deconfliction engine.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety" class="sec sec-light">
+    <div class="wrap">
+      <p class="eyebrow">Provable, not asserted</p>
+      <h2>Safety and provenance</h2>
+      <p class="lede">In a hospital, a defence facility or a regulated plant, "the robot stopped" is
+        not a claim you make — it is a claim you evidence. That constraint shapes the architecture
+        rather than sitting on top of it.</p>
+      <div class="grid3">
+        <div class="card"><h3>Confirmed stop paths</h3>
+          <p>A stop is acknowledged by the robot and recorded, and the safety path runs on an edge
+             node independently of the cloud control plane. Losing the network does not lose the
+             ability to stop.</p></div>
+        <div class="card"><h3>Tamper-evident event records</h3>
+          <p>Fleet events are recorded so that alteration is detectable, which is what turns an
+             operations log into evidence a reviewer can rely on.</p></div>
+        <div class="card"><h3>Signature-verified updates</h3>
+          <p>Firmware and model updates are signature-verified before they reach a machine, so the
+             supply chain into the fleet is as auditable as the fleet itself.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="swarmada" class="sec sec-raised">
+    <div class="wrap">
+      <p class="eyebrow">The standard underneath</p>
+      <h2>Built on Swarmada</h2>
+      <p class="lede">Vanceda builds on <a href="https://swarmada.io">Swarmada</a>, an open standard
+        for robot fleet orchestration released under Apache&nbsp;2.0.</p>
+      <div class="neutral">
+        <p>Swarmada is developed in the open with its own governance and is free for anyone to use,
+           implement or fork.</p>
+        <p><strong>Vanceda holds no special control over the project and uses it on the same terms as
+           any other adopter.</strong> Our products sit above the standard; the standard itself is
+           not ours to own.</p>
+        <p>Vanceda's own products are commercial and proprietary. The standard they run on is
+           neither, and that separation is deliberate — it is what makes the layer safe for a
+           competitor to adopt and safe for a customer to depend on.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-ghost" href="https://swarmada.io">swarmada.io</a>
+        <a class="btn btn-ghost" href="https://github.com/swarmada/swarmada">Specification and source</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="sec sec-wash">
+    <div class="wrap">
+      <p class="eyebrow">Now</p>
+      <h2>Design partners</h2>
+      <p class="lede">Vanceda is early. We are working with a small number of operations running
+        robots from more than one manufacturer, and we would rather be honest about the stage than
+        pretend otherwise.</p>
+      <div class="partner">
+        <div><h3>What a partner gets</h3><ul>
+          <li>Direct influence over the specification while it is still being written</li>
+          <li>An adapter built for the robots you already own</li>
+          <li>Engineering attention a later customer will not get</li>
+          <li>No lock-in on the layer that matters — the standard is open and forkable, so your
+              adapters outlive your contract with us</li></ul></div>
+        <div><h3>What we need from you</h3><ul>
+          <li>A real mixed fleet, even a small one</li>
+          <li>An operations contact who will tell us when it is wrong</li>
+          <li>A pilot area where a failure is inconvenient rather than dangerous</li></ul></div>
+        <div><h3>What a pilot looks like</h3><ul>
+          <li>Read-only fleet visibility first — no commands, no risk</li>
+          <li>Then task assignment in one zone, existing consoles still available</li>
+          <li>Then deconfliction across vendors, once the first two have earned it</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="wrap">
+      <h2>Running robots from more than one vendor?</h2>
+      <p class="lede">Design-partner conversations, technical questions, and press.</p>
+      <div class="actions"><a class="btn btn-primary" href="mailto:alex@vanceda.com">alex@vanceda.com</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <span>Vanceda LLC · California · Entity B20260362096 · formed 2026</span>
+    <nav aria-label="Footer">
+      <a href="https://swarmada.io">Swarmada</a>
+      <a href="https://github.com/swarmada/swarmada">Swarmada on GitHub</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
